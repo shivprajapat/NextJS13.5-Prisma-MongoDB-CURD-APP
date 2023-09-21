@@ -15,9 +15,17 @@ export const POST = async (request) => {
     });
     return NextResponse.json(newPost);
   } catch (error) {
-    return NextResponse(
-      { message: "post error", error: error },
-      { status: 500 }
-    );
+    return NextResponse({ message: "post error", error }, { status: 500 });
+  }
+};
+
+// GET Request
+
+export const GET = async () => {
+  try {
+    const posts = await prisma.post.findMany();
+    return NextResponse.json(posts);
+  } catch (error) {
+    return NextResponse.json({ message: "get error", error }, { status: 500 });
   }
 };
