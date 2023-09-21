@@ -34,8 +34,15 @@ const AllPost = ({ posts }) => {
     }
   };
 
-  const deleteHandler = (id) => {
-    console.log("delete");
+  const deleteHandler = async(id) => {
+    const res = await axios.delete(`/api/todo/${id}`);
+    if (res) {
+      setDeletePost(false)
+      router.refresh();
+      toast.success("Todo Deleted Successfully");
+    } else {
+      toast.error("something went wrong");
+    }
   };
   const viewHandler = () => {
     console.log("view");
@@ -83,7 +90,7 @@ const AllPost = ({ posts }) => {
             </button>
             <button
               type="button"
-              onClick={() => deleteHandler(id)}
+              onClick={() => setDeletePost(true)}
               className="px-3 py-2 text-white bg-red-500 rounded-full"
             >
               <svg
@@ -133,6 +140,17 @@ const AllPost = ({ posts }) => {
             <Button title="Update" type="submit" />
           </div>
         </form>
+      </Modal>
+
+      <Modal
+        modelOpen={deletePost}
+        setModalOpen={setDeletePost}
+        title="Are you sure you want to delete this post?"
+      >
+        <div className="flex gap-5">
+          <Button onClick={() => setDeletePost(false)} title="No" bgGray />
+          <Button onClick={() => deleteHandler(posts.id)} title="Yes" />
+        </div>
       </Modal>
     </>
   );
