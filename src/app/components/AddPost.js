@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import Button from "./button";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 const AddPost = () => {
   const [modelOpen, setModalOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -29,6 +30,7 @@ const AddPost = () => {
       setFormData({});
       setModalOpen(false);
       router.refresh();
+      toast.success("Todo Create Successfully");
     }
   };
   return (

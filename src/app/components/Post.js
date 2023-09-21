@@ -3,7 +3,10 @@ import PostList from "./PostList";
 import AddPost from "./AddPost";
 
 const getPost = async () => {
-  const res = await fetch("http://localhost:3000/api/todo", { method: "GET" ,cache:'no-store'});
+  const res = await fetch("http://localhost:3000/api/todo", {
+    method: "GET",
+    cache: "no-store",
+  });
   return res.json();
 };
 const Post = async () => {
@@ -16,7 +19,7 @@ const Post = async () => {
         </h1>
         <AddPost />
       </div>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap">
         <PostList posts={posts} />
       </div>
     </div>

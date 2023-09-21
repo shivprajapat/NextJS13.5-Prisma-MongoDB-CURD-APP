@@ -4,9 +4,9 @@ const Modal = ({ children, modelOpen, setModalOpen, title }) => {
   return (
     <>
       {modelOpen && (
-        <div className="bg-black/50 fixed inset-0">
+        <div className="bg-black/50 fixed inset-0 ">
           <div className="flex justify-center items-center h-full">
-            <div className="flex flex-col items-end bg-slate-800 w-1/2 p-5">
+            <div className="flex flex-col items-end bg-slate-800 w-[450px] p-5">
               <div className="flex  mb-3 w-full justify-between">
                 <h2 className="text-xl font-semibold text-white">{title}</h2>
                 <button
