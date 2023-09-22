@@ -12,7 +12,7 @@ const getPost = async () => {
 const Post = async () => {
   const posts = await getPost();
   return (
-    <div className="container mx-auto">
+    <div className="wrapper">
       <div className="mb-5 text-center flex flex-wrap justify-between items-center gap-5">
         <h1 className="text-xl xl:text-3xl font-bold text-white">
           NextJS 13.5 Prisma & MongoDB CURD APP
